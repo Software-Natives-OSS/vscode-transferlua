@@ -21,7 +21,6 @@
 				"title": "Transfer Lua"
 			}
 		],
-		
 		"configuration": {
 			"title": "Transfer Lua",
 			"properties": {
@@ -74,6 +73,6 @@
 		"vscode-test": "^1.4.0"
 	},
 	"dependencies": {
-		"@softwarenatives/transferlua": "^2.0.0"
+		"@softwarenatives/transferlua": "^2.0.1"
 	}
 }
