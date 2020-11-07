@@ -5,8 +5,8 @@
 	"version": "1.0.0",
 	"publisher": "software-natives-zulliger",
 	"repository": {
-	  "type": "git",
-	  "url": "https://github.com/Software-Natives-OSS/vscode-transferlua.git"
+		"type": "git",
+		"url": "https://github.com/Software-Natives-OSS/vscode-transferlua.git"
 	},
 	"engines": {
 		"vscode": "^1.50.0"
@@ -65,7 +65,7 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.51.0",
+		"@types/vscode": "^1.50.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.0",
 		"@types/node": "^12.11.7",
