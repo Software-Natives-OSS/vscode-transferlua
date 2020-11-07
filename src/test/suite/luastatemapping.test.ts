@@ -10,15 +10,15 @@ import * as path from 'path';
 
 const defaultTestMapping : Mapping[] = [
 	{ 
-		folder: "parent_1/child_1",
+		path: "parent_1/child_1",
 		state: "State_1_1"
 	},
 	{ 
-		folder: "parent_1/child_2",
+		path: "parent_1/child_2",
 		state: "State_1_2"
 	},
 	{ 
-		folder: "parent_2/child_1",
+		path: "parent_2/child_1",
 		state: "State_2_1"
 	}
 ];
