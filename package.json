@@ -24,25 +24,30 @@
 		"configuration": {
 			"title": "Transfer Lua",
 			"properties": {
-			  "transferlua.luastates": {
-				"type": "array",
-				"items": {
-					"type": "object",
-					"title": "Folder to Lua states assignments",
-					"properties": {
-						"path": {
-							"type": "string",
-							"description": "Path relative to the workspace root"
-						},
-						"state": {
-							"type": "string",
-							"description": "Lua state name"
-						}
-					}
+				"transferlua.indeltarget": {
+					"type": "string",
+					"default": "Net251",
+					"description": "The name of the Indel target"
 				},
-				"default": [],
-				"description": "Setup Lua states for paths"
-			  }
+				"transferlua.luastates": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"title": "Folder to Lua states assignments",
+						"properties": {
+							"path": {
+								"type": "string",
+								"description": "Path relative to the workspace root"
+							},
+							"state": {
+								"type": "string",
+								"description": "Lua state name"
+							}
+						}
+					},
+					"default": [],
+					"description": "Setup Lua states for paths"
+				}
 			}
 		}
 	},

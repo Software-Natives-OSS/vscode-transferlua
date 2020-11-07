@@ -11,6 +11,11 @@ function getMappings(): Mapping[] {
 	return config.get<Mapping[]>('luastates', []);
 }
 
+function getIndelTargetName(): string {
+	const config = vscode.workspace.getConfiguration('transferlua');
+	return config.get<string>('indeltarget', 'Net251');
+}
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -41,8 +46,10 @@ export function activate(context: vscode.ExtensionContext) {
 				luaState = 'Machine';
 			}
 
+			const indelTargetName = getIndelTargetName();
+
 			try {
-				const tl = new transferLua.TransferLua("TransferLuaTest", { force: true });
+				const tl = new transferLua.TransferLua(indelTargetName, { force: true });
 				tl.sendChunk('vscodeExtension', luaState, fileContent, { options: transferLua.OPTION_EXECUTE });
 				vscode.window.showInformationMessage(`Transferring Lua script download successful`);
 				tl.close();
