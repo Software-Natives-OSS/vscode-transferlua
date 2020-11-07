@@ -2,7 +2,7 @@
 
 This extension adds a command to VSCode to transfer Lua scripts to [Indel AG](https://indel.ch) targets.
 
-While eidting a Lua script, press F1 and select `Transfer Lua` as shown here:
+While editing a Lua script, press F1 and select `Transfer Lua` as shown here:
 
 ![](transferlua_command.png)
 
@@ -16,7 +16,7 @@ MIT
 
 This extension was developed independently of Indel. Thus, Indel should not be blamed for any issues you might have with this extension.
 
-In fact, this is an open source project and everybody's invited to contribute. Including Indel employees.
+In fact, this is an open source project and everybody's invited to contribute. Including Indel employees, of course!
 
 ## Features
 
