@@ -1,9 +1,7 @@
 # Change Log
 
-All notable changes to the "vscode-softwarenatives-transferlua" extension will be documented in this file.
+All notable changes to the VSCode TransferLua extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
+## [1.0.0] - 2020-11-07
 
 - Initial release

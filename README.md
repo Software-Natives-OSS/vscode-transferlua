@@ -1,20 +1,36 @@
-# vscode-softwarenatives-transferlua README
+# VSCode TransferLua Extension
 
-This is the README for your extension "vscode-softwarenatives-transferlua". After writing up a brief description, we recommend including the following sections.
+This extension adds a command to VSCode to transfer Lua scripts to [Indel AG](https://indel.ch) targets.
+
+While eidting a Lua script, press F1 and select `Transfer Lua` as shown here:
+
+![](transferlua_command.png)
+
+This is a rather minimalistic extension at this time, but already allows to transfer arbitrary Lua scripts to configurable Lua states. There's also basic reporting about success or failure, although, in case of errors, the details needs to be gotten from the Indel Eventlog so far.
+
+## License
+
+MIT
+
+## Project
+
+This extension was developed independently of Indel. Thus, Indel should not be blamed for any issues you might have with this extension.
+
+In fact, this is an open source project and everybody's invited to contribute. Including Indel employees.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- Download the content of the Lua script currently opened and active in the editor
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+In order to download the Lua script to the right Indel target and the right Lua state, the following pre-conditions must be fulfilled:
+
+- Configure the Indel target name
+- Workspace paths (folder) can (and must) be assigned to Lua states (see configuration example below)
+- Lua scripts must be part of a workspace
+
+Moreover, the IndelToolsSetup must be installed, providing the Indel TranfserLua-dynamic library.
 
 ## Extension Settings
 
@@ -24,42 +40,39 @@ For example:
 
 This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `transferlua.indeltarget`: set to the name of the Indel target to which to transfer the Lua scripts to
+* `transferlua.luastates`: configure the Lua states
+
+A valid configuration may look like this:
+
+```json
+{
+    "editor.renderWhitespace": "all",
+    ...
+    "transferlua.luastates": [
+    
+        {
+            "path": "folder1",
+            "state": "Machine"
+        },
+        {
+            "path": "folder2",
+            "state": "Machine"
+        }
+    ],
+    "transferlua.indeltarget": "Net251"
+}
+```
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
+- Error/Problem reporting is quite poor (merely "success" or "failure" is shown as of today)
+- Lua state mapping must be done by editing the VSCode configuration file "manually"
 
 ### 1.0.0
 
-Initial release of ...
+The initial release
 
-### 1.0.1
+### Authors
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- Raphael Zulliger <zulliger@software-natives.io>

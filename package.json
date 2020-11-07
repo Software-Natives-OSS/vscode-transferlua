@@ -2,7 +2,7 @@
 	"name": "vscode-softwarenatives-transferlua",
 	"displayName": "vscode-transferlua",
 	"description": "Transfer Lua scripts to Indel targets",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
