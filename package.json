@@ -4,6 +4,10 @@
 	"description": "Transfer Lua scripts to Indel targets",
 	"version": "1.0.0",
 	"publisher": "software-natives-zulliger",
+	"repository": {
+	  "type": "git",
+	  "url": "git@github.com:Software-Natives-OSS/vscode-transferlua.git"
+	},
 	"engines": {
 		"vscode": "^1.51.0"
 	},
