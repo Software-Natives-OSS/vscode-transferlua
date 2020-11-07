@@ -1,6 +1,6 @@
 {
 	"name": "vscode-softwarenatives-transferlua",
-	"displayName": "vscode-transferlua",
+	"displayName": "TransferLua",
 	"description": "Transfer Lua scripts to Indel targets",
 	"version": "1.0.0",
 	"publisher": "software-natives-zulliger",
@@ -9,19 +9,20 @@
 	  "url": "https://github.com/Software-Natives-OSS/vscode-transferlua.git"
 	},
 	"engines": {
-		"vscode": "^1.51.0"
+		"vscode": "^1.50.0"
 	},
 	"categories": [
-		"Other"
+		"Other",
+		"Programming Languages"
 	],
 	"activationEvents": [
-		"onCommand:vscode-softwarenatives-transferlua.helloWorld"
+		"onCommand:vscode-softwarenatives-transferlua.transferlua"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "vscode-softwarenatives-transferlua.helloWorld",
+				"command": "vscode-softwarenatives-transferlua.transferlua",
 				"title": "Transfer Lua"
 			}
 		],

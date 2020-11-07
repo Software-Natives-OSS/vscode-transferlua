@@ -2,7 +2,6 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as transferLua from '@softwarenatives/transferlua';
-import * as path from 'path';
 import { Mapping } from './mapping';
 import { LuaStateMapping } from './luastatemapping';
 
@@ -20,14 +19,10 @@ function getIndelTargetName(): string {
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-softwarenatives-transferlua" is now active!');
-
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('vscode-softwarenatives-transferlua.helloWorld', () => {
+	let disposable = vscode.commands.registerCommand('vscode-softwarenatives-transferlua.transferlua', () => {
 		
 		const fileContent = vscode.window.activeTextEditor?.document.getText();
 		if (fileContent) {
