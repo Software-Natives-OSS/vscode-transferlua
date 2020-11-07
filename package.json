@@ -17,9 +17,34 @@
 		"commands": [
 			{
 				"command": "vscode-softwarenatives-transferlua.helloWorld",
-				"title": "Hello World"
+				"title": "Transfer Lua"
 			}
-		]
+		],
+		
+		"configuration": {
+			"title": "Transfer Lua",
+			"properties": {
+			  "transferlua.luastates": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"title": "Folder to Lua states assignments",
+					"properties": {
+						"name": {
+							"type": "string",
+							"description": "Path to folder"
+						},
+						"size": {
+							"type": "string",
+							"description": "Lua state"
+						}
+					}
+				},
+				"default": [],
+				"description": "Geile shit."
+			  }
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
