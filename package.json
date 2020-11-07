@@ -2,7 +2,7 @@
 	"name": "vscode-softwarenatives-transferlua",
 	"displayName": "TransferLua",
 	"description": "Transfer Lua scripts to Indel targets",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"publisher": "software-natives-zulliger",
 	"repository": {
 		"type": "git",
