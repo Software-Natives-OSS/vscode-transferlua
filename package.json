@@ -3,6 +3,7 @@
 	"displayName": "vscode-transferlua",
 	"description": "Transfer Lua scripts to Indel targets",
 	"version": "1.0.0",
+	"publisher": "software-natives-zulliger",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
