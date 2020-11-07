@@ -3,52 +3,12 @@
 import * as vscode from 'vscode';
 import * as transferLua from '@softwarenatives/transferlua';
 import * as path from 'path';
+import { Mapping } from './mapping';
+import { LuaStateMapping } from './luastatemapping';
 
-function getMappings(): any[] {
+function getMappings(): Mapping[] {
 	const config = vscode.workspace.getConfiguration('transferlua');
-	return config.get<any[]>('luastates', []);
-}
-
-function pathsMatch(workspaceRelativePath: string, mappedPath: string): boolean {
-	// this path in the "native" form, e.g. "Folder/SubFolder" on *nix or "Folder\\SubFolder" on Windows
-	const workspacePathParts = workspaceRelativePath.split(path.sep);
-	// The mapping path is, by defintion, in *nix format style (so that the configuration can be used cross platform)
-	const mappedPathParts = mappedPath.split('/');
-
-	// if mapped is "shorter", it can't match.
-	if (mappedPathParts.length <= workspacePathParts.length) {
-		// compare the 'mapped path' array with the first few path parts of the 'workspace parts'
-		if (mappedPathParts.every((value, index) => workspacePathParts[index] === value)) {
-			return true;
-		}
-	}
-	return false;
-}
-
-function findLuaState(workspaceRelativePath: string): string
-{
-	const mappings = getMappings();
-	for (const mapping of mappings) {
-		for (const mappedPath in mapping) {
-			if (pathsMatch(workspaceRelativePath, mappedPath)) {
-				return mapping[mappedPath];
-			}
-		}
-	}
-	return "";
-}
-
-function determineWorkspaceRelativePath(filePath: string | undefined): string {
-	let isInWorkspace = false;
-	if (vscode.workspace.rootPath && filePath && filePath.startsWith(vscode.workspace.rootPath)) {
-		let relativePath = filePath.substr(vscode.workspace.rootPath.length);
-		if (relativePath.startsWith(path.sep)) {
-			relativePath = relativePath.substr(1);
-		}
-		return relativePath;
-	}
-	// not a workspace path
-	return filePath ? filePath : "";
+	return config.get<Mapping[]>('luastates', []);
 }
 
 // this method is called when your extension is activated
@@ -67,9 +27,20 @@ export function activate(context: vscode.ExtensionContext) {
 		const fileContent = vscode.window.activeTextEditor?.document.getText();
 		if (fileContent) {
 
-			const workspaceRelativePath = determineWorkspaceRelativePath(vscode.window.activeTextEditor?.document.fileName);
-			const luaState = findLuaState(workspaceRelativePath);
-			
+			const wsRootPath = vscode.workspace.rootPath;
+			const luaStateMapping = new LuaStateMapping(wsRootPath ? wsRootPath : "", getMappings());
+			const filePath = vscode.window.activeTextEditor?.document.fileName;
+			let luaState = null;
+			if (filePath) {
+				luaState = luaStateMapping.findLuaState(filePath);
+			}
+			if (!luaState) {
+				// For this first version, we assign the default lua state - 
+				// which is most certainly not what we want. In the 
+				// next iteration, let's ask the user what to do...
+				luaState = 'Machine';
+			}
+
 			try {
 				const tl = new transferLua.TransferLua("TransferLuaTest", { force: true });
 				tl.sendChunk('vscodeExtension', luaState, fileContent, { options: transferLua.OPTION_EXECUTE });

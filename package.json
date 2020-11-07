@@ -30,18 +30,18 @@
 					"type": "object",
 					"title": "Folder to Lua states assignments",
 					"properties": {
-						"name": {
+						"path": {
 							"type": "string",
-							"description": "Path to folder"
+							"description": "Path relative to the workspace root"
 						},
-						"size": {
+						"state": {
 							"type": "string",
-							"description": "Lua state"
+							"description": "Lua state name"
 						}
 					}
 				},
 				"default": [],
-				"description": "Geile shit."
+				"description": "Setup Lua states for paths"
 			  }
 			}
 		}
