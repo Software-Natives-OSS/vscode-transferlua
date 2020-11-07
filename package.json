@@ -6,7 +6,7 @@
 	"publisher": "software-natives-zulliger",
 	"repository": {
 	  "type": "git",
-	  "url": "git@github.com:Software-Natives-OSS/vscode-transferlua.git"
+	  "url": "https://github.com/Software-Natives-OSS/vscode-transferlua.git"
 	},
 	"engines": {
 		"vscode": "^1.51.0"
